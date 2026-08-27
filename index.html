@@ -58,17 +58,11 @@
         }
 
         @keyframes float {
-            0%,
-            100% {
-                transform: translateY(0) rotate(0deg);
-            }
-
-            50% {
-                transform: translateY(-12px) rotate(8deg);
-            }
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-12px) rotate(8deg); }
         }
 
-        /* ปุ่มควบคุมเพลงมุมขวาบน */
+        /* ปุ่มควบคุมเพลง */
         .music-btn {
             position: fixed;
             top: calc(env(safe-area-inset-top, 0px) + 16px);
@@ -116,15 +110,8 @@
         }
 
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: scale(0.97);
-            }
-
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
+            from { opacity: 0; transform: scale(0.97); }
+            to { opacity: 1; transform: scale(1); }
         }
 
         .btn {
@@ -146,7 +133,7 @@
             transform: scale(0.96);
         }
 
-        /* 1. ซองจดหมายและแผ่นการ์ด */
+        /* 1. ซองจดหมาย */
         #screen-envelope {
             display: none;
             flex-direction: column !important;
@@ -263,7 +250,7 @@
             margin-top: 20px;
         }
 
-        /* 2. กรอบใส่รหัสผ่าน */
+        /* 2. รหัส PIN */
         .pin-card-box {
             position: relative;
             background: #ffffff;
@@ -362,15 +349,8 @@
         }
 
         @keyframes popIn {
-            from {
-                transform: scale(0.85);
-                opacity: 0;
-            }
-
-            to {
-                transform: scale(1);
-                opacity: 1;
-            }
+            from { transform: scale(0.85); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
         }
 
         .chat-choices {
@@ -395,7 +375,7 @@
             transform: scale(0.98);
         }
 
-        /* 4. หน้าจอสายเรียกเข้า (Incoming Call) */
+        /* 4. สายโทรเข้า */
         .call-screen {
             display: none;
             position: fixed;
@@ -443,14 +423,8 @@
         }
 
         @keyframes pulse {
-            0%,
-            100% {
-                opacity: 0.5;
-            }
-
-            50% {
-                opacity: 1;
-            }
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
         }
 
         .call-actions {
@@ -493,14 +467,8 @@
         }
 
         @keyframes callBounce {
-            0%,
-            100% {
-                transform: scale(1);
-            }
-
-            50% {
-                transform: scale(1.1);
-            }
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
         }
 
         /* 5. ควิซ */
@@ -541,7 +509,7 @@
             transform: scale(0.98);
         }
 
-        /* 6. แกลเลอรีรูปโพลารอยด์มินิมอล */
+        /* 6. แกลเลอรีรูปโพลารอยด์ */
         .camera-trigger {
             font-size: 3.2rem;
             cursor: pointer;
@@ -638,30 +606,16 @@
             filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
         }
 
-        .tilt-left {
-            transform: rotate(-4deg);
-        }
-
-        .tilt-right {
-            transform: rotate(4.5deg);
-        }
-
-        .tilt-center {
-            transform: rotate(-1deg) translateY(-4px);
-        }
+        .tilt-left { transform: rotate(-4deg); }
+        .tilt-right { transform: rotate(4.5deg); }
+        .tilt-center { transform: rotate(-1deg) translateY(-4px); }
 
         @keyframes popPolaroid {
-            0% {
-                transform: scale(0.3) translateY(20px);
-                opacity: 0;
-            }
-
-            100% {
-                opacity: 1;
-            }
+            0% { transform: scale(0.3) translateY(20px); opacity: 0; }
+            100% { opacity: 1; }
         }
 
-        /* การ์ดจดหมายบอกรักสุดท้าย */
+        /* การ์ดบอกรักสุดท้าย */
         .final-card-wrapper {
             position: relative;
             width: 330px;
@@ -707,13 +661,11 @@
 
 <body>
 
-    <!-- 🎵 HTML5 Audio Engine เล่นต่อเนื่องไร้รอยต่อ -->
+    <!-- เพลง MP3 พื้นหลัง -->
     <audio id="bgMusic" loop preload="auto">
         <source src="song.mp3" type="audio/mpeg">
-        <source src="Photo/song.mp3" type="audio/mpeg">
     </audio>
 
-    <!-- ปุ่มควบคุมเพลงมุมขวาบน -->
     <button class="music-btn" id="musicToggleBtn" onclick="toggleMusic()" aria-label="Music Toggle">🎵</button>
 
     <div class="bg-decor">
@@ -723,14 +675,14 @@
         <div class="bg-icon" style="top: 82%; right: 8%;">💖</div>
     </div>
 
-    <!-- Screen 1: ซองจดหมายรูปภาพจริง -->
+    <!-- Screen 1: ซองจดหมาย -->
     <div class="screen active" id="screen-envelope">
         <div class="img-envelope-wrapper" id="envelopeWrapper" onclick="openEnvelope()">
-            <img src="Photo/download-removebg-preview.png" class="img-envelope-bg" alt="envelope" />
+            <img src="download-removebg-preview.png" class="img-envelope-bg" alt="envelope" />
 
             <div class="letter-pocket">
                 <div class="card-item-box">
-                    <img src="Photo/download__1_-removebg-preview.png" class="img-letter-inner" alt="card" />
+                    <img src="download__1_-removebg-preview.png" class="img-letter-inner" alt="card" />
                     <div class="card-text-overlay">
                         <span class="main-text">Happy Anniversary 1st</span>
                         <span class="sub-text">Every dream is me & u 💖</span>
@@ -742,7 +694,7 @@
         <p class="envelope-hint">( แตะที่ซองจดหมายเล๊ยยย )</p>
     </div>
 
-    <!-- Screen 2: กรอบใส่รหัสผ่าน -->
+    <!-- Screen 2: รหัส PIN -->
     <div class="screen" id="screen-lock">
         <div class="pin-card-box">
             <div class="pin-title">Please Click My Passwords🔒</div>
@@ -769,10 +721,10 @@
         </div>
     </div>
 
-    <!-- Screen 4: หน้าจอสายโทรเข้า -->
+    <!-- Screen 4: สายโทรเข้า -->
     <div class="call-screen" id="callScreen">
         <div class="call-caller">
-            <img src="Photo/S__4177923.jpg" class="call-avatar-lg" />
+            <img src="S_4177923.jpg" class="call-avatar-lg" />
             <div class="call-name">BABE♡</div>
             <div class="call-status">สายโทรเข้า...</div>
         </div>
@@ -797,18 +749,16 @@
         </div>
     </div>
 
-    <!-- Screen 6: โพลารอยด์ & การ์ดจดหมาย -->
+    <!-- Screen 6: โพลารอยด์ & การ์ดบอกรัก -->
     <div class="screen" id="screen-gallery">
         <h3 style="margin-bottom: 6px; font-size: 1.2rem;">📸 ถ่ายรูปกันน ยิ้มหน่อยยจิ้</h3>
         <div class="camera-trigger" onclick="snapPhoto()">📷</div>
         <p style="font-size: 0.85rem; color: #9e8479; margin-bottom: 8px;">แตะกล้องเพื่อปริ้นรูปภาพ</p>
 
-        <!-- กล่องรวมรูปโพลารอยด์ -->
         <div class="polaroid-gallery" id="polaroidContainer"></div>
 
-        <!-- การ์ดจดหมายสุดท้าย -->
         <div class="final-card-wrapper" id="finalLetter" style="display: none;">
-            <img src="Photo/download__1_-removebg-preview.png" class="final-card-bg" alt="letter-bg" />
+            <img src="download__1_-removebg-preview.png" class="final-card-bg" alt="letter-bg" />
             <div class="final-card-text">
                 <div class="final-card-title">Happy Anniversary 1st na ka ❤️</div>
                 <div class="final-card-body">
@@ -830,7 +780,6 @@
     </div>
 
     <script>
-        // --- 🎵 HTML5 AUDIO CONTROLLER ---
         const bgMusic = document.getElementById('bgMusic');
         const musicBtn = document.getElementById('musicToggleBtn');
 
@@ -839,9 +788,7 @@
                 bgMusic.play().then(() => {
                     musicBtn.classList.add('playing');
                     musicBtn.innerText = '🎵';
-                }).catch(() => {
-                    // รอ User Interaction ครั้งแรก
-                });
+                }).catch(() => {});
             }
         }
 
@@ -857,11 +804,9 @@
             }
         }
 
-        // ปลดล็อกระบบเสียงทันทีที่แตะหน้าจอครั้งแรก
         window.addEventListener('touchstart', startMusic, { once: true });
         window.addEventListener('click', startMusic, { once: true });
 
-        // --- SCREEN NAVIGATION ---
         function goToScreen(screenId) {
             document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
             const target = document.getElementById(screenId);
@@ -869,7 +814,6 @@
             window.scrollTo({ top: 0, behavior: 'instant' });
         }
 
-        // --- STEP 1: ซองจดหมายรูปภาพ ---
         function openEnvelope() {
             startMusic();
             const el = document.getElementById('envelopeWrapper');
@@ -880,7 +824,6 @@
             }, 850);
         }
 
-        // --- STEP 2: PIN ---
         const correctPin = "280868";
         const inputs = document.querySelectorAll('.pin-digit');
 
@@ -919,7 +862,6 @@
             }
         }
 
-        // --- STEP 3: แชท & เด้งสายเข้า ---
         function sendReply(userText) {
             const chatBox = document.getElementById('chatBox');
             const chatChoices = document.getElementById('chatChoices');
@@ -944,14 +886,12 @@
             }, 600);
         }
 
-        // --- STEP 4: รับสาย ---
         function acceptCall() {
             document.getElementById('callScreen').classList.remove('active');
             goToScreen('screen-quiz');
             loadQuiz();
         }
 
-        // --- STEP 5: Quiz ---
         const quizData = [
             {
                 q: "1. วันนี้วันอะไร?",
@@ -1001,38 +941,37 @@
             }
         }
 
-        // --- STEP 6: แกลเลอรีรูปถ่าย (5 รูป: บน 3 / ล่าง 2) ---
         const photos = [
             {
-                url: "Photo/3.jpg",
+                url: "3.jpg",
                 caption: "เดทแรกของเรา 🌿",
                 sticker: "🎀",
                 tilt: "tilt-left",
                 row: "row-top"
             },
             {
-                url: "Photo/4.jpg",
+                url: "4.jpg",
                 caption: "น่ารักที่สุด 💕",
                 sticker: "✨",
                 tilt: "tilt-center",
                 row: "row-top"
             },
             {
-                url: "Photo/1.jpg",
+                url: "1.jpg",
                 caption: "รักเธอทุกวัน 🐱",
                 sticker: "🌸",
                 tilt: "tilt-right",
                 row: "row-top"
             },
             {
-                url: "Photo/2.jpg",
+                url: "2.jpg",
                 caption: "รอยยิ้มของเค้า 💖",
                 sticker: "🧸",
                 tilt: "tilt-left",
                 row: "row-bottom"
             },
             {
-                url: "Photo/S__4177923.jpg",
+                url: "S_4177923.jpg",
                 caption: "1st Anniversary 👩‍❤️‍👨",
                 sticker: "💌",
                 tilt: "tilt-right",
